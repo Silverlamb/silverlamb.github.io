@@ -1,6 +1,6 @@
 # ^ this is my alias
 
-Hey, it seems like you've caught me in the process of developing my website. I'll be adding consecutive updates for the website, and I'm expecting the next one to be around **August 2nd, 2025**. If not, I'll update the date here to one in the future. I'm am currently working on the **design and theme** update.
+Hey, it seems like you've caught me in the process of developing my website. I'll be adding consecutive updates for the website, and I'm expecting the next one to be around **August 24th, 2025**. If not, I'll update the date here to one in the future. I'm am currently working on the **design and theme** update.
 
 Here is a quick blurb for the moment...
 
