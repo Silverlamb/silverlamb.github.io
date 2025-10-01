@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishaan Kothari | Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <!-- Added &display=swap to help with font loading behavior -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
+    <style>
+        /*
+         * THEME ENGINE & CUSTOM STYLES
+        */
+
+        /* FIX: Prevent Flash of Unstyled Text (FOUT) */
+        /* The body will be invisible until the custom fonts are loaded */
+        .fonts-loading {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* 1. Define base styles for each theme */
+        .theme-pixel {
+            font-family: 'VT323', monospace;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .theme-modern {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Tailwind's slate-50 */
+            color: #0f172a; /* Tailwind's slate-900 */
+        }
+        
+        /* FIX: How to bold the pixel font */
+        /* The 'VT323' font doesn't have a bold weight. This rule creates a faux-bold effect */
+        /* using a subtle text shadow, which looks better for pixel fonts than browser-forced bolding. */
+        .theme-pixel .font-bold {
+            text-shadow: 1px 1px #111;
+        }
+
+        /* Card and container styling */
+        .theme-pixel .themed-container {
+            border: 2px solid #f0f0f0;
+            background-color: #2b2b2b;
+        }
+        .theme-modern .themed-container {
+            border: 1px solid #e2e8f0; /* slate-200 */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            background-color: #ffffff;
+        }
+        
+        /* Button styling */
+        .theme-pixel .themed-button {
+            border: 2px solid #f0f0f0;
+            padding: 8px 16px;
+            text-transform: uppercase;
+            font-size: 20px; /* Give button its own size */
+        }
+        .theme-pixel .themed-button:hover {
+            background-color: #f0f0f0;
+            color: #1a1a1a;
+        }
+        .theme-modern .themed-button {
+            background-color: #0f172a; /* slate-900 */
+            color: #f8fafc; /* slate-50 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 10px 18px;
+            font-weight: bold;
+        }
+        .theme-modern .themed-button:hover {
+             background-color: #334155; /* slate-700 */
+        }
+
+        /* Special image rendering for pixel art */
+        .theme-pixel .pixel-art {
+            image-rendering: pixelated;
+        }
+        
+        /* Link styling */
+        .theme-pixel a {
+            color: #8bf7a7;
+            text-decoration: underline;
+        }
+        .theme-modern a {
+            color: #1d4ed8; /* blue-700 */
+            font-weight: 600;
+        }
+        .theme-modern a:hover {
+            text-decoration: underline;
+        }
+
+        /* Icon Styling */
+        .themed-icon {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .theme-pixel .themed-icon {
+            fill: #f0f0f0; /* White-ish */
+        }
+        .theme-pixel a:hover .themed-icon {
+            fill: #8bf7a7; /* Pixel-theme link color */
+            transform: translateY(-2px);
+        }
+
+        .theme-modern .themed-icon {
+            fill: #334155; /* slate-700 */
+        }
+        .theme-modern a:hover .themed-icon {
+            fill: #0f172a; /* slate-900 */
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<!-- The page loads with the 'theme-pixel' and 'fonts-loading' classes -->
+<body class="theme-pixel fonts-loading transition-colors duration-300">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-8">
+        
+        <!-- Header with Icons -->
+        <header class="flex justify-between items-center mb-12">
+            <h1 class="text-3xl font-bold">Ishaan Kothari</h1>
+            <div class="flex items-center gap-4 sm:gap-6">
+                <div class="flex items-center gap-4">
+                     <!-- GitHub Icon -->
+                    <a href="https://github.com/Silverlamb" target="_blank" title="GitHub" class="no-underline">
+                        <svg class="themed-icon w-7 h-7" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                    <!-- LinkedIn Icon -->
+                    <a href="https://www.linkedin.com/in/ishaan-kothari/" target="_blank" title="LinkedIn" class="no-underline">
+                        <svg class="themed-icon w-7 h-7" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                    </a>
+                    <!-- Resume Icon -->
+                    <a href="https://drive.google.com/file/d/1vKTZxgcNX7ltRh_7TsBw0hW9B5rXp5or/view?usp=sharing" target="_blank" title="Resume" class="no-underline">
+                        <svg class="themed-icon w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" fill="none"></path><path d="M14 2V8H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" fill="none"></path><path d="M16 13H8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" fill="none"></path><path d="M16 17H8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" fill="none"></path><path d="M10 9H8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" fill="none"></path></svg>
+                    </a>
+                </div>
+                <button id="theme-switcher" class="themed-button">
+                    Switch Style
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section - Left-aligned -->
+            <section class="mb-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <!-- Image container -->
+                <div class="flex-shrink-0">
+                    <img src="assets/avatar.png" alt="My pixel art" class="w-72 h-72 pixel-art themed-container p-1">
+                </div>
+                <!-- Text container -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm Ishaan!</h2>
+                    <p class="text-xl md:text-2xl max-w-2xl mx-auto md:mx-0">
+                        This is a website that will showcase what I'm up to, which includes my interests and anything I'm currently or have working on. <br>
+                        You've caught me actively working this website, expecting to make continuous updates on here.
+                        I expect my next update to be around <span class="font-bold">October 31st, 2025</span>. 
+                        I'm working on better site styling and adding projects and achievements onto here.
+                    </p>
+                </div>
+            </section>
+
+            <!-- About Me -->
+            <section class="themed-container p-6 md:p-8 mb-12" id="about">
+                <h3 class="text-4xl font-bold mb-4">A Little About Me</h3>
+                <p class="mb-4 text-xl">
+                    I'm interested in deep problem-solving, whether that's through the constructs of software engineering or the analytical rigor of research. I'm keenly interested in developing/applying algorithms effectively and understanding robust system design. I'm also passionate about clean coding practices.
+                </p>
+                <p class="text-xl">
+                    I believe in continuous learning and am always looking for new challenges and opportunities to grow.
+                </p>
+            </section>
+            
+            <!-- Projects Placeholder -->
+            <section id="projects" class="mb-12">
+                <h3 class="text-4xl font-bold mb-6 text-center">Projects & Achievements</h3>
+                 <div class="themed-container p-6 md:p-8 text-center">
+                    <p class="text-lg">Here's where my projects will be. I'll update them here as I go with them. I wanted to link my competitive programming profiles, publications, and GitHub repos.</p>
+                </div>
+            </section>
+
+            <!-- Interests -->
+            <section class="mb-12" id="interests">
+                <h3 class="text-4xl font-bold mb-6 text-center">Current Interests</h3>
+                <!-- UPDATED: Changed lg:grid-cols-3 to lg:grid-cols-2 to prevent squishing -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <div class="themed-container p-6">
+                        <h4 class="text-3xl font-bold mb-2">Architecture Design</h4>
+                        <p class="text-lg">I'm captivated by how spaces are conceived and structured, blending aesthetics with functionality. I've taken two industrial design classes, and they have really taught me how to think about design. I actively try to in my everyday.</p>
+                    </div>
+                    <div class="themed-container p-6">
+                        <h4 class="text-3xl font-bold mb-2">Financial Markets</h4>
+                        <p class="text-lg">The intricate systems within financial markets present a constant stream of complex puzzles. I particularly love the logic puzzles and am actively doing some in the green book.</p>
+                    </div>
+                    <div class="themed-container p-6">
+                        <h4 class="text-3xl font-bold mb-2">Pure Math</h4>
+                        <p class="text-lg">There's an undeniable allure in the abstract beauty and rigorous logic of pure mathematics, fueling my interest. While that sounds too elegant, it is true. I've taken more math classes at tech because I'm interested. Some of them include: Linear Programming, Automata & Complexity, and Differential Equations.</p>
+                    </div>
+                    <div class="themed-container p-6">
+                        <h4 class="text-3xl font-bold mb-2">Satire & Stand-Up</h4>
+                        <p class="text-lg">"I find the art of satire and comedy to be a profound form of creativity, dissecting society with wit and precision." is what Gemini told me to write here, but I've been interested in comedy sketches ever since I was a kid. Some comedians I like include John Oliver, Dave Chapelle, Hasan Minaj, and Jon Stewart. </p>
+                    </div>
+                    <div class="themed-container p-6">
+                        <h4 class="text-3xl font-bold mb-2">Bouldering</h4>
+                        <p class="text-lg">I've recently started climbing, and I'm already addicted. It's incredbily exciting to try and figure out how to do a particular climb. I'm currently on the blue tags (V2 - V4).</p>
+                    </div>
+                    <div class="themed-container p-6">
+                        <h4 class="text-3xl font-bold mb-2">Badminton</h4>
+                        <p class="text-lg">I play badminton at the badminton club at GT. Still a beginner, the club is the best place to learn for me.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 pt-8 border-t-2 theme-pixel:border-gray-600 theme-modern:border-gray-200">
+            <p class="text-sm text-gray-500">&copy; 2025 Ishaan Kothari. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // FONT LOADING LOGIC
+        // This script waits until your custom fonts are ready, then removes the 'fonts-loading'
+        // class from the body, making the content fade in smoothly.
+        document.fonts.ready.then(() => {
+            document.body.classList.remove('fonts-loading');
+        });
+
+        // THEME SWITCHER LOGIC
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const body = document.querySelector('body');
+
+        // Function to set the theme
+        function setTheme(theme) {
+            body.classList.remove('theme-pixel', 'theme-modern');
+            body.classList.add(theme);
+            localStorage.setItem('theme', theme); // Save theme preference
+        }
+
+        // Event listener for the button
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = localStorage.getItem('theme') || 'theme-pixel';
+            const nextTheme = currentTheme === 'theme-pixel' ? 'theme-modern' : 'theme-pixel';
+            setTheme(nextTheme);
+        });
+
+        // On page load, check for saved theme
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                setTheme('theme-pixel'); // Default theme
+            }
+        });
+    </script>
+
+</body>
+</html>
